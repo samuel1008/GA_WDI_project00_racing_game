@@ -1,0 +1,18 @@
+#player {
+  position: absolute;
+  background-image: url("../img/newrunning.gif");
+  width: 250px;
+  height: 205px;
+  border: 1px solid red;
+}
+
+
+
+#map{
+  position: relative;
+  border: 1px solid black;
+  height: 300px;
+  width: 800px;
+  height: 500px;
+
+}
