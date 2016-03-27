@@ -7,7 +7,21 @@
 
 }
 
+.spacing{
+  height: 100px;
+}
 
+.score {
+  border: 1px black;
+  color: blue;
+  width: 10px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.scoreing {
+  margin: 10px auto;
+}
 
 .box {
   border: 1px 1px 1px 1px solid black;
@@ -28,6 +42,9 @@
 
 }
 
+body{
+  padding-bottom: 50px;
+}
 
 #map {
   position: relative;

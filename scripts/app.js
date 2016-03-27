@@ -4,6 +4,8 @@ $(document).ready(function() {
   var player2 = 'y';
   var position1 = 1;
   var position2 = 13;
+  var score_p1 = 0;
+  var score_p2 = 0;
 
   $("#1").append(player);
   $("#13").append(player2);
@@ -21,7 +23,19 @@ $(document).ready(function() {
         }
         if (position1 === 12) {
           alert(player + " " + "wins!!!");
-
+          score_p1++;
+          if($(".score").text !== ""){
+            $(".score").empty();
+            $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+            console.log("did x win?");
+        } else {
+          $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+        }
+          $("div.track div").empty();
+          $("#1").append(player);
+          $("#13").append(player2);
+          position1 = 1;
+          position2 = 13;
         }
       }
       if (event.which === 97) {
@@ -32,17 +46,31 @@ $(document).ready(function() {
           $("#" + position2).text(player2);
           console.log("YEEEEE");
         }
+        if (position2 === 24) {
+          alert(player2 + " " + "wins!!!");
+          score_p2++;
+          if($(".score").text !== ""){
+            $(".score").empty();
+            $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+        } else {
+          $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+        }
+        console.log("did 2 win?");
+          $("div.track div").empty();
+          $("#1").append(player);
+          $("#13").append(player2);
+          position1 = 1;
+          position2 = 13;
+        }
       }
       $("#reset").on('click', function() {
         $("div.track div").empty();
         $("#1").append(player);
         $("#13").append(player2);
+        position1 = 1;
+        position2 = 13;
 
       });
-
-      // else if ($("#24").text === player2){
-      //   alert(player2 + " " + "wins!!!");
-      // }
     });
   }
   gameplay();
