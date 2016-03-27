@@ -3,16 +3,54 @@
   background-image: url("../img/newrunning.gif");
   width: 250px;
   height: 205px;
-  border: 1px solid red;
+  border: 2px solid red;
+
 }
 
 
 
-#map{
+.box {
+  border: 1px 1px 1px 1px solid black;
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  padding: 10px;
+  margin: auto;
+}
+
+
+#player2 {
+  position: absolute;
+  background-image: url("../img/newsonic.gif");
+  width: 250px;
+  height: 205px;
+  border: 2px solid blue;
+
+}
+
+
+#map {
   position: relative;
   border: 1px solid black;
   height: 300px;
-  width: 800px;
-  height: 500px;
+  width: 1100px;
+  height: 250px;
+  padding: 20px;
 
+
+}
+
+#map2 {
+  position: relative;
+  border: 1px solid black;
+  height: 300px;
+  width: 1100px;
+  height: 250px;
+  padding: 15px;
+
+
+}
+
+.container {
+  padding: 1px;
 }
