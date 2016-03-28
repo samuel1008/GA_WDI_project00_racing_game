@@ -1,13 +1,30 @@
 $(document).ready(function() {
 
-  var player = 'x';
-  var player2 = 'y';
+  var source   = $("#players-template").html();
+  var template = Handlebars.compile(source);
+
+  function Player(name, position, score){
+    this.name = name;
+    this.position = position;
+    this.score = score;
+  }
+
+  var renderedHTML = template({ players: playerArray });
+
+  var playerArray = [
+    new Player("sam"),
+    new player("num2")
+  ];
+
+
+  // var player = 'x';
+  // var player2 = 'y';
   var position1 = 1;
   var position2 = 13;
   var score_p1 = 0;
   var score_p2 = 0;
 
-  $("#1").append(player);
+  $("#1").append(playerArray.name);
   $("#13").append(player2);
 
 
