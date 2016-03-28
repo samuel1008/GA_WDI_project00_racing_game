@@ -1,94 +1,70 @@
 $(document).ready(function() {
 
-  var source   = $("#players-template").html();
-  var template = Handlebars.compile(source);
 
-  function Player(name, position, score){
-    this.name = name;
-    this.position = position;
-    this.score = score;
-  }
-
-  var renderedHTML = template({ players: playerArray });
-
-  var playerArray = [
-    new Player("sam"),
-    new player("num2")
-  ];
-
-
-  // var player = 'x';
-  // var player2 = 'y';
-  var position1 = 1;
-  var position2 = 13;
-  var score_p1 = 0;
-  var score_p2 = 0;
-
-  $("#1").append(playerArray.name);
-  $("#13").append(player2);
-
+  $("#1").append(playerOne.name);
+  $("#13").append(playerTwo.name);
 
   function gameplay() {
     $(window).on('keypress', function handler(event) {
-      console.log(1);
       if (event.which === 100) {
-        if ($("#" + position1).text !== "") {
-          $("#" + position1).empty();
-          position1++;
-          $("#" + position1).text(player);
-          console.log("after key press");
+        if ($("#" + playerOne.position).text !== "") {
+          $("#" + playerOne.position).empty();
+          playerOne.position++;
+          $("#" + playerOne.position).text(playerOne.name);
         }
-        if (position1 === 12) {
-          alert(player + " " + "wins!!!");
-          score_p1++;
+        if (playerOne.position === 12) {
+          alert(playerOne.name + " " + "wins!!!");
+          playerOne.score++;
           if($(".score").text !== ""){
             $(".score").empty();
-            $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
-            console.log("did x win?");
+            $(".score").append("<p>" + playerOne.name + " " + "scored " + playerOne.score + " " + "points," + playerTwo.name + " " + "scored " + playerTwo.score + " " + "points" + "</p>");
         } else {
-          $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+          $(".score").append("<p>" + playerOne.name + " " + "scored " + playerOne.score + " " + "points," + playerTwo.name + " " + "scored " + playerTwo.score + " " + "points" + "</p>");
         }
           $("div.track div").empty();
-          $("#1").append(player);
-          $("#13").append(player2);
-          position1 = 1;
-          position2 = 13;
+          $("#1").append(playerOne.name);
+          $("#13").append(playerTwo.name);
+          playerOne.position = 1;
+          playerTwo.position = 13;
         }
       }
       if (event.which === 97) {
-        console.log("why ain this working!!!");
-        if ($("#" + position2).text !== "") {
-          $("#" + position2).empty();
-          position2++;
-          $("#" + position2).text(player2);
-          console.log("YEEEEE");
+        if ($("#" + playerTwo.position).text !== "") {
+          $("#" + playerTwo.position).empty();
+          playerTwo.position++;
+          $("#" + playerTwo.position).text(playerTwo.name);
         }
-        if (position2 === 24) {
-          alert(player2 + " " + "wins!!!");
-          score_p2++;
+        if (playerTwo.position === 24) {
+          alert(playerTwo.name + " " + "wins!!!");
+          playerTwo.score++;
           if($(".score").text !== ""){
             $(".score").empty();
-            $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+            $(".score").append("<p>" + playerOne.name + " " + "scored " + playerOne.score + " " + "points," + playerTwo.name + " " + "scored " + playerTwo.score + " " + "points" + "</p>");
         } else {
-          $(".score").append("<p>" + player + " " + "scored " + score_p1 + " " + "points," + player2 + " " + "scored " + score_p2 + " " + "points" + "</p>");
+          $(".score").append("<p>" + playerOne.name + " " + "scored " + playerOne.score + " " + "points," + playerTwo.name + " " + "scored " + playerTwo.score + " " + "points" + "</p>");
         }
-        console.log("did 2 win?");
           $("div.track div").empty();
-          $("#1").append(player);
-          $("#13").append(player2);
-          position1 = 1;
-          position2 = 13;
+          $("#1").append(playerOne.name);
+          $("#13").append(playerTwo.name);
+          playerOne.position = 1;
+          playerTwo.position = 13;
         }
       }
       $("#reset").on('click', function() {
         $("div.track div").empty();
-        $("#1").append(player);
-        $("#13").append(player2);
-        position1 = 1;
-        position2 = 13;
+        $("#1").append(playerOne.name);
+        $("#13").append(playerTwo.name);
+        playerOne.position = 1;
+        playerTwo.position = 13;
 
       });
     });
   }
   gameplay();
 });
+
+function Player(name, position, score) {
+  this.name = name;
+  this.position = position;
+  this.score = score;
+}
