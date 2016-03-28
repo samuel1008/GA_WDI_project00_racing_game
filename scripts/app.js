@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  var playerOne=new Player("X", 1, 0);
+  var playerTwo=new Player("Y", 13, 0);
+  var playerArray = [playerOne, playerTwo];
+
 
   $("#1").append(playerOne.name);
   $("#13").append(playerTwo.name);
